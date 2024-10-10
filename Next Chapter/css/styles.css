@@ -1,0 +1,33 @@
+
+.body{
+    background-color:dimgray
+}
+.headLetters{
+    background:radial-gradient(white, dimgray);
+    border: 4px solid navajowhite;
+    border-radius: 30%;
+    box-shadow: 3px 3px 3px black;
+    font-family: "Stardos Stencil";
+    text-shadow: 3px 3px 3px blue;
+    font-size: 40px;
+    color: red;
+}
+
+.pic{
+    animation: linear;
+    animation-name: picture;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes picture{
+  from{
+    border: 4px ridge gold;
+    border-radius: 25%;
+    background: radial-gradient(red, white, blue)
+  }
+  to{
+    border: none;
+    border-radius: 100%;
+    background: radial-gradient(blue, white, red)
+  }
+  }
