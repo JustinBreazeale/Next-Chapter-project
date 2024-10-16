@@ -132,3 +132,9 @@ subButArr[0].addEventListener('click', ()=>{
     console.log(points)
 })
 
+function divMaker(){
+    let pointRow = document.createElement('div')
+    pointRow.classList.add('pointsRow', 'row', 'mt-5')
+    console.log(pointRow)
+}
+divMaker()
