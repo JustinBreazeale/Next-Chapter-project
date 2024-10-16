@@ -1,14 +1,18 @@
 
 .body{
-    /* background-color:dimgray */
-    /* background-image: url(../assets/NFLbanner.jpg); */
+    background-image: url(../assets/NFLbanner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
 }
 .headLetters{
   overflow: hidden;
   /* width: 100%; */
   height:100px;
-    background:radial-gradient(white, dimgray);
-    border: 10px ridge navajowhite;
+    background:radial-gradient(white, blue);
+    border: 10px ridge red;
     /* border-radius: 10%; */
     box-shadow: 3px 3px 3px black;
     font-family: "Stardos Stencil";
@@ -51,9 +55,9 @@ label{
   font-family: "Stardos Stencil";
   text-shadow: 2px 2px 2px red;
   font-size: 30px;
-  border: 5px outset navajowhite;
-  color: blue;
-  background-color: dimgray;
+  border: 5px outset black;
+  color: white;
+  background: radial-gradient(white,red,blue);
   width: 250px;
 }
 .modAnn{
@@ -101,12 +105,12 @@ label{
   }
   @keyframes picture{
   from{
-    border: 4px solid navajowhite;
+    border: 4px solid black;
     border-radius: 25%; 
     background: radial-gradient(red, white, blue)
   }
   to{
-    border: 4px solid navajowhite;
+    border: 4px solid black;
     border-radius: 100%;
     background: radial-gradient(blue, white, red)
   }
@@ -115,13 +119,49 @@ label{
     /* background-color: yellow; */
   }
   .userInputs{
-    border: 5px ridge silver;
+    border: 5px ridge blue;
   }
   .labelLetters{
-    border: 5px inset black;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px inset red;
+    font-size: 15px;
     width: 100%;
-    background-color: silver;
+    background: radial-gradient(white, red,blue) ;
     margin: 0 20px 0 0;
-    color:blue;
+    color: rgb(6, 19, 39);
+  }
+  .butAnn{
+    animation: linear;
+    animation-name: button;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes button{
+    0%{
+      border:10px outset blue;
+    }
+    25%{
+      border:10px outset red;
+    }
+    50%{
+      border:10px outset blue;
+    }
+    75%{
+      border:10px outset  red;
+    }
+    100%{
+      border:10px outset blue;
+    }
+  }
+  .subButtons{
+    background: radial-gradient(white, brown 50%);
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+    border: 10px outset blue;
+    border-radius: 25px 25px 25px 25px;
+    width:200px;
+    height: 50px
   }
