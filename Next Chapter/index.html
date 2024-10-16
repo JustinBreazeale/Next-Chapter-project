@@ -49,7 +49,7 @@
                     </div><!--Modal Body-->
                     <div id="modFoot" class="modal-footer">
                         <button id="modClose" type="button" class="btn" data-bs-dismiss="modal">Cancel</button> 
-                        <button id="regSubBut" class="btn" type="submit"><b>Submit Information</b></button>
+                        <button id="regSubBut" class="btn" type="submit" data-bs-dismiss="modal"><b>Submit Information</b></button>
                     </div><!--Modal footer-->
                 </div><!--Modal Content-->
             </div><!--Modal Dialog-->
@@ -60,6 +60,9 @@
             <!--Start of QBs-------------------->
             <!--QB Pass yards Start-->
             <div id="qbPassRow" class="row mt-5">
+                <div class="pointsDiv">
+                    <h1 class="pointsPlace"></h1>
+                </div>
                 <div class="col-sm-6 d-flex justify-content-end">
                     <label class="labelLetters">QB Pass Yards</label>
                     <input class="userInputs" id="qbPassInput" type="text" placeholder="Number of yards">
@@ -236,7 +239,9 @@
         </div><!--Container-->
         <!--User Inputs Above-->
     </main>
-    
+    <footer id="footer">
+        <h1>Footer</h1>
+    </footer>
 </body>
 
 </html>

@@ -1,18 +1,27 @@
-const leftPicDiv = document.getElementById('leftPicDiv')
-const rightPicDiv = document.getElementById('rightPicDiv')
+
 const leftImage = document.getElementById('leftImage')
 const rightImage = document.getElementById('rightImage')
 const formDiv = document.getElementById('formDiv')
 const form = document.getElementById('regForm')
 const formItem = document.getElementsByClassName('formItem')
 const inputContainer = document.getElementById('inputContainer')
-// inputContainer.style.display = 'none'
+const footer = document.getElementById('footer')
+const infoSubmitBut = document.getElementById('regSubBut')
+const modal = document.getElementById('regModal')
+const statSubmitBut = document.getElementsByClassName('subButtons')
+const statInput = document.getElementsByClassName('userInputs')
+const pointDiv = document.getElementsByClassName('pointsDiv')
+const pointPlace = document.getElementsByClassName('pointsPlace')
+localStorage.clear()
+inputContainer.style.display = 'none'
+footer.style.display = 'none'
 const itemArr = Array.from(formItem)
-// itemArr.forEach((item) => {
-//     item.style.display = 'none'
-// })
-// formItem.style.display = 'none'
-// Picture source declarations---------------------->
+const subButArr = Array.from(statSubmitBut)
+const statInputArr = Array.from(statInput)
+const pointDivArr = Array.from(pointDiv)
+const pointPlaceArr = Array.from(pointPlace)
+console.log(subButArr)
+console.log(statInputArr)
 const arz = './assets/arizona.png'
 const dal = './assets/dallas.png'
 const wash = './assets/washington.png'
@@ -106,3 +115,20 @@ placerRight()
 // Intervals for new pictures-------------------------------->
 setInterval(placerLeft, 2000)
 setInterval(placerRight, 2000)
+infoSubmitBut.addEventListener('click', ()=>{
+    localStorage.setItem("First Name", itemArr[1].value)
+    localStorage.setItem("Last Name", itemArr[3].value)
+    localStorage.setItem("Team Name", itemArr[5].value)
+    inputContainer.style.display = 'inline'
+})
+subButArr[0].addEventListener('click', ()=>{
+    let passYards = statInputArr[0].value
+    let points = passYards/20
+    if (passYards > 300){
+        points = passYards/20+2
+    }else{
+        points = passYards/20
+    }
+    console.log(points)
+})
+
