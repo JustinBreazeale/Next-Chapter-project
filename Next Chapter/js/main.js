@@ -1,4 +1,3 @@
-
 const leftImage = document.getElementById('leftImage')
 const rightImage = document.getElementById('rightImage')
 const formDiv = document.getElementById('formDiv')
@@ -10,18 +9,21 @@ const infoSubmitBut = document.getElementById('regSubBut')
 const modal = document.getElementById('regModal')
 const statSubmitBut = document.getElementsByClassName('subButtons')
 const statInput = document.getElementsByClassName('userInputs')
-const pointDiv = document.getElementsByClassName('pointsDiv')
-const pointPlace = document.getElementsByClassName('pointsPlace')
+const infoRow = document.getElementsByClassName('infoRow')
+let columns = document.getElementsByClassName('col-sm-6')
+// console.log(columns)
 localStorage.clear()
-inputContainer.style.display = 'none'
+// inputContainer.style.display = 'none'
 footer.style.display = 'none'
 const itemArr = Array.from(formItem)
 const subButArr = Array.from(statSubmitBut)
 const statInputArr = Array.from(statInput)
-const pointDivArr = Array.from(pointDiv)
-const pointPlaceArr = Array.from(pointPlace)
-console.log(subButArr)
-console.log(statInputArr)
+const infoRowArr = Array.from(infoRow)
+const columnsArr = Array.from(columns)
+console.log(columnsArr)
+// console.log(subButArr)
+// console.log(statInputArr)
+// console.log(infoRow)
 const arz = './assets/arizona.png'
 const dal = './assets/dallas.png'
 const wash = './assets/washington.png'
@@ -121,20 +123,26 @@ infoSubmitBut.addEventListener('click', ()=>{
     localStorage.setItem("Team Name", itemArr[5].value)
     inputContainer.style.display = 'inline'
 })
+function divMaker(){
+    infoRowArr.forEach((row)=>{
+    let pointDiv = document.createElement('div')
+    pointDiv.classList.add('pointsDiv')
+    let pointValue = document.createElement('h1')
+    pointValue.classList.add('pointValue')
+    pointDiv.appendChild(pointValue)
+    row.appendChild(pointDiv)
+    })
+    console.log(infoRowArr[0])
+}
 subButArr[0].addEventListener('click', ()=>{
     let passYards = statInputArr[0].value
     let points = passYards/20
     if (passYards > 300){
         points = passYards/20+2
-    }else{
-        points = passYards/20
     }
+    let testDiv = document.getElementById('test')
+    console.log(testDiv)
+    testDiv.style.display = 'none'
     console.log(points)
+    divMaker()
 })
-
-function divMaker(){
-    let pointRow = document.createElement('div')
-    pointRow.classList.add('pointsRow', 'row', 'mt-5')
-    console.log(pointRow)
-}
-divMaker()
