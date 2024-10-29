@@ -9,16 +9,10 @@
 }
 .headLetters{
   overflow: hidden;
-  /* width: 100%; */
+  width: 100%;
   height:100px;
-    background:radial-gradient(white, blue);
-    border: 10px ridge red;
-    /* border-radius: 10%; */
-    box-shadow: 3px 3px 3px black;
-    font-family: "Stardos Stencil";
-    text-shadow: 3px 3px 3px blue;
-    font-size: 40px;
-    color: red;
+  font-family: "Stardos Stencil";
+  font-size: 3em;
 }
 .modal{
   background-color: black;
@@ -47,17 +41,14 @@ background: linear-gradient(135deg, dimgray, white);
 #regForm{
   width:400px;
 }
-label{
-  font-family: "Stardos Stencil"; 
-  font-size: 20px;
-}
+
 #regBut{
   font-family: "Stardos Stencil";
   text-shadow: 2px 2px 2px red;
   font-size: 30px;
   border: 5px outset black;
   color: white;
-  background: radial-gradient(white,red,blue);
+  background-image: url(../assets/inputImg2.png);
   width: 250px;
 }
 .modAnn{
@@ -120,62 +111,29 @@ label{
   }
   .userInputs{
     text-align: center;
+    
     box-shadow: 3px 3px 3px black;
-    font-size: 20px;
-    text-shadow: 2px 2px 2px white;
-    border: none;
+    border: 3px inset black;
     border-radius: 50%;
-    background: linear-gradient(45deg, white 20%, brown);
-    height:85%;
+    /* background-image: url(../assets/inputImg2.png); */
+    height:100%;
     width: 100%;
-    color: black;
+    
   }
   .butDiv{
     height:100px;
-  }
-  .labelLetters{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    border: 5px outset black;
-    font-size: 2vw;
-    margin: 0 50px 0 0;
-    background-image: url(../assets/inputImg2.png);
-    color: white;
-    height:100%;
-    width:100%;
-  }
-  @media (max-width: 600px){
-    .labelLetters{
-      font-size: 4vw;
-    }
-    .userInputs{
-      font-size: 4vw;
-    }
   }
   .butAnn{
     animation: linear;
     animation-name: button;
     animation-duration: 1s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
   }
   @keyframes button{
     0%{
-      border:5px outset blue;
+      transform: rotateY(180deg)
     }
-    25%{
-      border:5px outset red;
-    }
-    50%{
-      border:5px outset blue;
-    }
-    75%{
-      border:5px outset  red;
-    }
-    100%{
-      border:5px outset blue;
-    }
+    
   }
   .subButtons{
     background: none;

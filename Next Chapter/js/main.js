@@ -13,7 +13,7 @@ const infoRow = document.getElementsByClassName('infoRow')
 const infoContainer = document.getElementsByClassName('infoContainer')
 
 localStorage.clear()
-// inputContainer.style.display = 'none'
+inputContainer.style.display = 'none'
 footer.style.display = 'none'
 const itemArr = Array.from(formItem)
 const subButArr = Array.from(statSubmitBut)
