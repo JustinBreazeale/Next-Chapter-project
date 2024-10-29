@@ -1,6 +1,6 @@
 
 .body{
-    background-image: url(../assets/NFLbanner.jpg);
+    background-image: url(../assets/field.png);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -119,18 +119,40 @@ label{
     /* background-color: yellow; */
   }
   .userInputs{
-    border: 5px ridge blue;
+    text-align: center;
+    box-shadow: 3px 3px 3px black;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px white;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(45deg, white 20%, brown);
+    height:85%;
+    width: 100%;
+    color: black;
+  }
+  .butDiv{
+    height:100px;
   }
   .labelLetters{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px inset red;
-    font-size: 15px;
-    width: 100%;
-    background: radial-gradient(white, red,blue) ;
-    margin: 0 20px 0 0;
-    color: rgb(6, 19, 39);
+    border-radius: 100%;
+    border: 5px outset black;
+    font-size: 2vw;
+    margin: 0 50px 0 0;
+    background-image: url(../assets/inputImg2.png);
+    color: white;
+    height:100%;
+    width:100%;
+  }
+  @media (max-width: 600px){
+    .labelLetters{
+      font-size: 4vw;
+    }
+    .userInputs{
+      font-size: 4vw;
+    }
   }
   .butAnn{
     animation: linear;
@@ -140,28 +162,35 @@ label{
   }
   @keyframes button{
     0%{
-      border:10px outset blue;
+      border:5px outset blue;
     }
     25%{
-      border:10px outset red;
+      border:5px outset red;
     }
     50%{
-      border:10px outset blue;
+      border:5px outset blue;
     }
     75%{
-      border:10px outset  red;
+      border:5px outset  red;
     }
     100%{
-      border:10px outset blue;
+      border:5px outset blue;
     }
   }
   .subButtons{
-    background: radial-gradient(white, brown 50%);
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 20px;
-    border: 10px outset blue;
-    border-radius: 25px 25px 25px 25px;
-    width:200px;
-    height: 50px
+    background: none;
+    border: none;
+    
+  }
+  .butImg{
+    /* border-radius: 50%; */
+    width: 200px;
+    height: 100px;
+  }
+  .pointsDiv{
+    text-align: center;
+    margin: 10px 0 10px 0;
+  }
+  .pointValuePlace{
+    color: yellow;
   }

@@ -10,8 +10,8 @@ const modal = document.getElementById('regModal')
 const statSubmitBut = document.getElementsByClassName('subButtons')
 const statInput = document.getElementsByClassName('userInputs')
 const infoRow = document.getElementsByClassName('infoRow')
-let columns = document.getElementsByClassName('col-sm-6')
-// console.log(columns)
+const infoContainer = document.getElementsByClassName('infoContainer')
+
 localStorage.clear()
 // inputContainer.style.display = 'none'
 footer.style.display = 'none'
@@ -19,9 +19,9 @@ const itemArr = Array.from(formItem)
 const subButArr = Array.from(statSubmitBut)
 const statInputArr = Array.from(statInput)
 const infoRowArr = Array.from(infoRow)
-const columnsArr = Array.from(columns)
-console.log(columnsArr)
-// console.log(subButArr)
+const infoContainerArr = Array.from(infoContainer)
+// console.log(infoContainerArr)
+console.log(subButArr)
 // console.log(statInputArr)
 // console.log(infoRow)
 const arz = './assets/arizona.png'
@@ -124,25 +124,138 @@ infoSubmitBut.addEventListener('click', ()=>{
     inputContainer.style.display = 'inline'
 })
 function divMaker(){
-    infoRowArr.forEach((row)=>{
+    infoContainerArr.forEach((row)=>{
     let pointDiv = document.createElement('div')
     pointDiv.classList.add('pointsDiv')
-    let pointValue = document.createElement('h1')
-    pointValue.classList.add('pointValue')
-    pointDiv.appendChild(pointValue)
     row.appendChild(pointDiv)
     })
-    console.log(infoRowArr[0])
 }
+divMaker()
+const pointsDivs = document.getElementsByClassName('pointsDiv')
+const pointsDivArr = Array.from(pointsDivs)
+//QB passing yards function
 subButArr[0].addEventListener('click', ()=>{
     let passYards = statInputArr[0].value
     let points = passYards/20
     if (passYards > 300){
         points = passYards/20+2
     }
-    let testDiv = document.getElementById('test')
-    console.log(testDiv)
-    testDiv.style.display = 'none'
-    console.log(points)
-    divMaker()
+    infoRowArr[0].style.display = 'none'
+    let pointValuePlace = document.createElement('h1')
+    pointValuePlace.classList.add('pointValuePlace')
+    pointValuePlace.textContent = points
+    pointsDivArr[0].appendChild(pointValuePlace)
 })
+//QB interception function
+subButArr[1].addEventListener('click', ()=>{
+    let interceptions = statInputArr[1].value
+    let points = interceptions * 2 * -1
+    infoRowArr[1].style.display = 'none'
+    let pointValuePlace = document.createElement('h1')
+    pointValuePlace.classList.add('pointValuePlace')
+    pointValuePlace.textContent = points
+    pointsDivArr[1].appendChild(pointValuePlace)
+})
+//Rushing function
+function rushCalcl(arrP){
+    let rushYards = statInputArr[arrP].value
+    let points = rushYards / 10
+    infoRowArr[arrP].style.display = 'none'
+    let pointValuePlace = document.createElement('h1')
+    pointValuePlace.classList.add('pointValuePlace')
+    pointValuePlace.textContent = points
+    pointsDivArr[arrP].appendChild(pointValuePlace)
+}
+//TD function
+function TDcalc(arrP){
+    let touchdowns = statInputArr[arrP].value
+    let points = touchdowns * 6
+    infoRowArr[arrP].style.display = 'none'
+    let pointValuePlace = document.createElement('h1')
+    pointValuePlace.classList.add('pointValuePlace')
+    pointValuePlace.textContent = points
+    pointsDivArr[arrP].appendChild(pointValuePlace)
+}
+//Receiving yards function
+function recCalc(arrP){
+    let recYards = statInputArr[arrP].value
+    let points = recYards/10
+    if(recYards > 100){
+        points = recYards/10 + 2
+    }
+    infoRowArr[arrP].style.display = 'none'
+    let pointValuePlace = document.createElement('h1')
+    pointValuePlace.classList.add('pointValuePlace')
+    pointValuePlace.textContent = points
+    pointsDivArr[arrP].appendChild(pointValuePlace) 
+}
+//Receptions function
+function recpCalc(arrP){
+    let receptions = statInputArr[arrP].value
+    let points = receptions
+    infoRowArr[arrP].style.display = 'none'
+    let pointValuePlace = document.createElement('h1')
+    pointValuePlace.classList.add('pointValuePlace')
+    pointValuePlace.textContent = points
+    pointsDivArr[arrP].appendChild(pointValuePlace) 
+}
+// Defensive Interception function
+function defScore(arrP){
+    let numberOf = statInputArr[arrP].value
+    let points = numberOf * 2
+    infoRowArr[arrP].style.display = 'none'
+    let pointValuePlace = document.createElement('h1')
+    pointValuePlace.classList.add('pointValuePlace')
+    pointValuePlace.textContent = points
+    pointsDivArr[arrP].appendChild(pointValuePlace) 
+}
+//QB rushing
+subButArr[2].addEventListener('click', ()=>{
+    rushCalcl(2)
+})
+//QB TDs
+subButArr[3].addEventListener('click', ()=>{
+    TDcalc(3)
+})
+//RB rushing
+subButArr[4].addEventListener('click', ()=>{
+    rushCalcl(4)
+})
+// RB receiving
+subButArr[5].addEventListener('click', ()=>{
+    recCalc(5)
+})
+// RB receptions 
+subButArr[6].addEventListener('click', ()=>{
+    recpCalc(6)
+})
+// RB TDs
+subButArr[7].addEventListener('click', ()=>{
+    TDcalc(7)
+})
+// WR receiving
+subButArr[8].addEventListener('click', ()=>{
+    recCalc(8)
+})
+//WR rushing
+subButArr[9].addEventListener('click', ()=>{
+    rushCalcl(9)
+})
+// WR receptions 
+subButArr[10].addEventListener('click', ()=>{
+    recpCalc(10)
+})
+// WR TDs
+subButArr[11].addEventListener('click', ()=>{
+    TDcalc(11)
+})
+// Defensive Interceptions
+subButArr[12].addEventListener('click', ()=>{
+    defScore(12)
+})
+// Defensive sacks
+subButArr[13].addEventListener('click', ()=>{
+    defScore(13)
+})
+
+
