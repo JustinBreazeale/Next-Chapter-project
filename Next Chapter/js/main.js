@@ -11,19 +11,20 @@ const statSubmitBut = document.getElementsByClassName('subButtons')
 const statInput = document.getElementsByClassName('userInputs')
 const infoRow = document.getElementsByClassName('infoRow')
 const infoContainer = document.getElementsByClassName('infoContainer')
-
+const scoreButtonRow = document.getElementById('scoreRow')
+const regBut = document.getElementById('regBut')
 localStorage.clear()
 inputContainer.style.display = 'none'
 footer.style.display = 'none'
+scoreButtonRow.style.display = 'none'
 const itemArr = Array.from(formItem)
 const subButArr = Array.from(statSubmitBut)
 const statInputArr = Array.from(statInput)
 const infoRowArr = Array.from(infoRow)
 const infoContainerArr = Array.from(infoContainer)
-// console.log(infoContainerArr)
+
 console.log(subButArr)
-// console.log(statInputArr)
-// console.log(infoRow)
+
 const arz = './assets/arizona.png'
 const dal = './assets/dallas.png'
 const wash = './assets/washington.png'
@@ -122,6 +123,12 @@ infoSubmitBut.addEventListener('click', ()=>{
     localStorage.setItem("Last Name", itemArr[3].value)
     localStorage.setItem("Team Name", itemArr[5].value)
     inputContainer.style.display = 'inline'
+    scoreButtonRow.style.display = 'inline'
+    footer.style.display = 'inline'
+    regBut.style.display = 'none'
+    subButArr.forEach((button) => {
+        button.classList.add('butAnn')
+    })
 })
 function divMaker(){
     infoContainerArr.forEach((row)=>{
