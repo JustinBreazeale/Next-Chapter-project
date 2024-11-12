@@ -14,7 +14,7 @@ const infoContainer = document.getElementsByClassName('infoContainer')
 const scoreButtonRow = document.getElementById('scoreRow')
 const regBut = document.getElementById('regBut')
 localStorage.clear()
-inputContainer.style.display = 'none'
+// inputContainer.style.display = 'none'
 footer.style.display = 'none'
 scoreButtonRow.style.display = 'none'
 const itemArr = Array.from(formItem)
@@ -102,14 +102,14 @@ function placerLeft(){
     const numPick = ranNum(0, teamPicArr.length)
     // console.log(numPick)
     const finalPick = teamPicArr[numPick]
-    leftImage.setAttribute('class', 'pic')
+    // leftImage.setAttribute('class', 'pic')
     leftImage.setAttribute('src', finalPick)
     // console.log(finalPick)
 }
 function placerRight(){
     const numPick = ranNum(0, teamPicArr.length)
     const finalPick = teamPicArr[numPick]
-    rightImage.setAttribute('class', 'pic')
+    // rightImage.setAttribute('class', 'pic')
     rightImage.setAttribute('src', finalPick)
     // console.log(finalPick)
 }
