@@ -13,8 +13,9 @@ const infoRow = document.getElementsByClassName('infoRow')
 const infoContainer = document.getElementsByClassName('infoContainer')
 const scoreButtonRow = document.getElementById('scoreRow')
 const regBut = document.getElementById('regBut')
+const scoreBut = document.getElementById('scoreBut')
 localStorage.clear()
-// inputContainer.style.display = 'none'
+inputContainer.style.display = 'none'
 footer.style.display = 'none'
 scoreButtonRow.style.display = 'none'
 const itemArr = Array.from(formItem)
@@ -264,5 +265,24 @@ subButArr[12].addEventListener('click', ()=>{
 subButArr[13].addEventListener('click', ()=>{
     defScore(13)
 })
-
+scoreBut.addEventListener('click', ()=>{
+    inputContainer.style.display = 'none'
+    const pointPlace = document.getElementsByClassName('pointValuePlace')
+    const pointPlaceArr = Array.from(pointPlace)
+    const finPointArr = []
+    pointPlaceArr.forEach((score) =>{
+    finPointArr.push(parseFloat(score.textContent))
+    })
+    const totalPoints = finPointArr.reduce((accumulator, currentValue) => accumulator + currentValue)
+    scoreBut.style.display = 'none'
+    const fName = localStorage.getItem('First Name')
+    const lName = localStorage.getItem('Last Name')
+    const teamName = localStorage.getItem('Team Name')
+    finalScore = document.createElement('h1')
+    finalScore.setAttribute('id', 'finScore')
+    finalScore.textContent = `${fName} ${lName} the score for ${teamName} is ${totalPoints}`
+    scoreButtonRow.appendChild(finalScore)
+    console.log(finPointArr)
+    console.log(totalPoints)
+})
 
