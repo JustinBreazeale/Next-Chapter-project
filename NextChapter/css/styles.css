@@ -5,9 +5,7 @@
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-   
 }
-
 #logo{
   height:450px;
   width: 450px;
@@ -48,18 +46,6 @@ background: linear-gradient(135deg, dimgray, white);
 #regForm{
   width:400px;
 }
-
-/* #regBut{
-  font-family: "Stardos Stencil";
-  text-shadow: 2px 2px 2px red;
-  font-size: 30px;
-  border: 5px outset black;
-  color: white;
-  background-image: url(../assets/inputImg2.png);
-  width: 250px;
-  margin: 40px 0 0 0;
-  
-} */
 .modAnn{
   animation:linear ;
   animation-name: modAnn;
@@ -115,9 +101,7 @@ background: linear-gradient(135deg, dimgray, white);
     background: radial-gradient(blue, white, red)
   }
   }
-  #qbPassRow{
-    /* background-color: yellow; */
-  }
+  
   .userInputs{
     text-align: center;
     /* box-shadow: 3px 3px 3px white; */
