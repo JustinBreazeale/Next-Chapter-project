@@ -15,14 +15,14 @@
 </head>
 <body class="body">
     <header class="container">
-        <div class="row d-flex justify-content-between  mt-5">
-            <div id="leftPicDiv" class="col-sm-4 text-center mt-3 mb-3">
+        <div class="row d-flex mt-5 justify-content-center">
+            <div id="leftPicDiv" class="col-sm-4 d-flex justify-content-center mt-3 mb-3">
                 <img id="leftImage">
             </div><!--Column 1-->
             <div id="logoCol" class="col-sm-4 mt-3 mb-3 d-flex justify-content-center align-items-start">
                 <img id="logo" src="./NextChapter/assets/logo.png">
             </div><!--Column 2-->
-            <div id="rightPicDiv" class="col-sm-4 text-center mt-3 mb-3">
+            <div id="rightPicDiv" class="col-sm-4 d-flex justify-content-center mt-3 mb-3">
                 <img id="rightImage">
             </div><!--Column 3-->
         </div><!--Row-->
@@ -31,7 +31,9 @@
     <main class="container">
         <div class="row d-flex justify-content-center">
             <button id="regBut" class="btn" type="button" data-bs-toggle="modal"
-                data-bs-target="#regModal"><img src="./NextChapter/assets/RegBut.png"></button>
+                data-bs-target="#regModal"><img id="clipboard" src="./NextChapter/assets/clipboard.png">
+            </button>
+            <h1 id="statText"><u>Enter Stats Below</u></h1>
         </div><!--Submission Button-->
         <!--Modal Code Below-->
         <div class="modal fade" id="regModal">
@@ -67,9 +69,9 @@
             <!--QB Pass yards Start-->
             <div class="container infoContainer">
                 <div id="qbRushRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="qbRushInput" type="text" placeholder="Enter QB pass yards">
+                        <input class="userInputs" id="qbPassInput" type="text" placeholder="QB pass yards">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
                         <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
@@ -81,12 +83,12 @@
             <!--QB Interceptions Start-->
             <div class="container infoContainer">
                 <div id="qbRushRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="qbRushInput" type="text" placeholder="Enter QB interceptiions">
+                        <input class="userInputs" id="qbIntInput" type="text" placeholder="QB interceptions">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="qbIntBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -95,12 +97,12 @@
             <!--QB Rush Yards Start-->
             <div class="container infoContainer">
                 <div id="qbRushRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="qbRushInput" type="text" placeholder="Enter QB rush yards">
+                        <input class="userInputs" id="qbRushInput" type="text" placeholder="QB rush yards">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="qbRushBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -109,12 +111,12 @@
             <!--QB Touchdowns Start-->
             <div class="container infoContainer">
                 <div id="qbTdRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="qbTdInput" type="text" placeholder="Enter QB TDs">
+                        <input class="userInputs" id="qbTdInput" type="text" placeholder="QB TDs">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="qbTdBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -124,12 +126,12 @@
             <!--RB Rush Yards Start-->
             <div class="container infoContainer">
                 <div id="RBrushRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6  d-flex justify-content-end">
+                    <div class="col-sm-6  d-flex justify-content-center">
 
-                        <input class="userInputs" id="RBrushInput" type="text" placeholder="Enter RB rush yards">
+                        <input class="userInputs" id="RBrushInput" type="text" placeholder="RB rush yards">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="rbRushBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -138,12 +140,12 @@
             <!--RB Receiving Yards Start-->
             <div class="container infoContainer">
                 <div id="RBrecRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="RBrecInput" type="text" placeholder="Enter RB receiving yards">
+                        <input class="userInputs" id="RBrecInput" type="text" placeholder="RB receiving yards">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="rbRecBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -152,12 +154,12 @@
             <!--RB Receptions Start-->
             <div class="container infoContainer">
                 <div id="RBrecpRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="RBrecpInput" type="text" placeholder="Enter RB receptions">
+                        <input class="userInputs" id="RBrecpInput" type="text" placeholder="RB receptions">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="rbRecpBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -166,12 +168,12 @@
             <!--RB Touchdowns Start-->
             <div class="container infoContainer">
                 <div id="RBtdRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="RBtdInput" type="text" placeholder="Enter RB TDs">
+                        <input class="userInputs" id="RBtdInput" type="text" placeholder="RB TDs">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="rbTdBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -181,12 +183,12 @@
             <!--WR Yards Start-->
             <div class="container infoContainer">
                 <div id="WRyardsRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="WRyardsInput" type="text" placeholder="Enter WR receiving yards">
+                        <input class="userInputs" id="WRyardsInput" type="text" placeholder="WR receiving yards">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="wrYardsBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -195,12 +197,12 @@
             <!--WR Rush Yards Start-->
             <div class="container infoContainer">
                 <div id="WRrushRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="WRrushInput" type="text" placeholder="Enter WR rush yards">
+                        <input class="userInputs" id="WRrushInput" type="text" placeholder="WR rush yards">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="wrRushBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -209,12 +211,12 @@
             <!--WR Receptions Start-->
             <div class="container infoContainer">
                 <div id="WRrecpRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="WRrecpInput" type="text" placeholder="Enter WR receptions">
+                        <input class="userInputs" id="WRrecpInput" type="text" placeholder="WR receptions">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="wrRecpBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -223,12 +225,12 @@
             <!--WR Touchdowns Start-->
             <div class="container infoContainer">
                 <div id="WRtdsRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
-                        <input class="userInputs" id="WRtdsInput" type="text" placeholder="Enter WR TDs">
+                        <input class="userInputs" id="WRtdsInput" type="text" placeholder="WR TDs">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="wrTdsBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -238,13 +240,13 @@
             <!--Def Interceptions Start-->
             <div class="container infoContainer">
                 <div id="DefIntsRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
                         <input class="userInputs" id="DefIntsInput" type="text"
-                            placeholder="Enter number of defensive interceptions">
+                            placeholder="Def interceptions">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="defIntsBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
@@ -253,13 +255,13 @@
             <!--Def Sacks Start-->
             <div class="container infoContainer">
                 <div id="DefSackRow" class="row mt-5 infoRow">
-                    <div class="col-sm-6 d-flex justify-content-end">
+                    <div class="col-sm-6 d-flex justify-content-center">
 
                         <input class="userInputs" id="DefSackInput" type="text"
-                            placeholder="Enter number of defensive sacks">
+                            placeholder="Def sacks">
                     </div><!--Column 1-->
                     <div class="col-sm-6 mt-2 d-flex justify-content-center">
-                        <button class="subButtons" id="qbPassBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
+                        <button class="subButtons" id="defSackBut"><img class="butImg" src="./NextChapter/assets/submitImg.png">
                         </button>
                     </div><!--column 2-->
                 </div><!--Row-->
