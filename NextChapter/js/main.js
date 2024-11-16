@@ -122,7 +122,7 @@ form.addEventListener('submit', (e) => {
     localStorage.setItem("Last Name", itemArr[3].value)
     localStorage.setItem("Team Name", itemArr[5].value)
     inputContainer.style.display = 'inline'
-    scoreButtonRow.style.display = 'inline'
+    scoreButtonRow.style.display = 'flex'
     statText.style.display = 'inline'
     regBut.style.display = 'none'
     formDiv.style.display = 'none'
