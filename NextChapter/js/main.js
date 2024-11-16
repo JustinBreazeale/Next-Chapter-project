@@ -5,7 +5,6 @@ const formDiv = document.getElementById('formDiv')
 const form = document.getElementById('regForm')
 const formItem = document.getElementsByClassName('formItem')
 const inputContainer = document.getElementById('inputContainer')
-
 const infoSubmitBut = document.getElementById('regSubBut')
 const statSubmitBut = document.getElementsByClassName('subButtons')
 const statInput = document.getElementsByClassName('userInputs')
@@ -16,16 +15,13 @@ const regBut = document.getElementById('regBut')
 const statText = document.getElementById('statText')
 const scoreBut = document.getElementById('scoreBut')
 localStorage.clear()
-// inputContainer.style.display = 'none'
+inputContainer.style.display = 'none'
 statText.style.display = 'none'
-
 scoreButtonRow.style.display = 'none'
 const itemArr = Array.from(formItem)
 const subButArr = Array.from(statSubmitBut)
 const statInputArr = Array.from(statInput)
 const infoSectionArr = Array.from(infoSection)
-console.log(infoSectionArr)
-
 const infoContainerArr = Array.from(infoContainer)
 const arz = './NextChapter/assets/arizona.png'
 const dal = './NextChapter/assets/dallas.png'
@@ -116,19 +112,17 @@ placerRight()
 setInterval(placerLeft, 2000)
 setInterval(placerRight, 2000)
 regBut.addEventListener('click', () => {
-    console.log('test')
+    
     formDiv.style.display = 'inline'
     regBut.style.display = 'none'
 })
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log('test')
     localStorage.setItem("First Name", itemArr[1].value)
     localStorage.setItem("Last Name", itemArr[3].value)
     localStorage.setItem("Team Name", itemArr[5].value)
     inputContainer.style.display = 'inline'
     scoreButtonRow.style.display = 'inline'
-    footer.style.display = 'inline'
     statText.style.display = 'inline'
     regBut.style.display = 'none'
     formDiv.style.display = 'none'
@@ -141,17 +135,14 @@ function divMaker() {
         let pointDiv = document.createElement('div')
         pointDiv.classList.add('pointsDiv')
         section.appendChild(pointDiv)
-        pointDiv.textContent = "test"
+        pointDiv.style.display = 'none'
     })
 }
 divMaker()
 const pointsDivs = document.getElementsByClassName('pointsDiv')
 const pointsDivArr = Array.from(pointsDivs)
-console.log(pointsDivArr)
 //QB passing yards function
 subButArr[0].addEventListener('click', () => {
-    console.log('test')
-    
     let passYards = statInputArr[0].value;
     passYards = Number(passYards);
     if (isNaN(passYards)) {
@@ -162,14 +153,14 @@ subButArr[0].addEventListener('click', () => {
         if (passYards > 300) {
             points += 2;
         }
-        
-        infoSectionArr[0].style.display = 'none';
-        // let pointValuePlace = document.createElement('h1');
-        // pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        // pointValuePlace.textContent = points;
-        // pointsDivArr[0].appendChild(pointValuePlace);
-        // pointsDivArr[0].style.display = 'inline'
-
+        statInputArr[0].style.display = 'none'
+        subButArr[0].style.display = 'none'
+        infoSectionArr[0].style.justifyContent = 'center'
+        let pointValuePlace = document.createElement('h1');
+        pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
+        pointValuePlace.textContent = points;
+        pointsDivArr[0].style.display = 'inline'
+        pointsDivArr[0].appendChild(pointValuePlace);
     }
 });
 //QB interception function
@@ -180,11 +171,15 @@ subButArr[1].addEventListener('click', () => {
         alert('Must enter a number only');
     } else {
         let points = interceptions * 2 * -1
-        infoSectionArr[1].style.display = 'none'
-        let pointValuePlace = document.createElement('h1')
+        statInputArr[1].style.display = 'none'
+        subButArr[1].style.display = 'none'
+        infoSectionArr[1].style.justifyContent = 'center'
+        let pointValuePlace = document.createElement('h1');
         pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points
-        pointsDivArr[1].appendChild(pointValuePlace)
+        pointValuePlace.textContent = points;
+        pointsDivArr[1].style.display = 'inline'
+        pointsDivArr[1].appendChild(pointValuePlace);
+        
     }
 })
 //Rushing function
@@ -195,12 +190,27 @@ function rushCalcl(arrP) {
         alert('Must enter a number only');
     } else {
         let points = rushYards / 10
-        infoSectionArr[arrP].style.display = 'none'
-        let pointValuePlace = document.createElement('h1')
+        statInputArr[arrP].style.display = 'none'
+        subButArr[arrP].style.display = 'none'
+        infoSectionArr[arrP].style.justifyContent = 'center'
+        let pointValuePlace = document.createElement('h1');
         pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points
-        pointsDivArr[arrP].appendChild(pointValuePlace)
+        pointValuePlace.textContent = points;
+        pointsDivArr[arrP].style.display = 'inline'
+        pointsDivArr[arrP].appendChild(pointValuePlace);
+        
     }
+}
+// Score placing function
+function test(position, score){
+    statInputArr[position].style.display = 'none'
+    subButArr[position].style.display = 'none'
+    infoSectionArr[position].style.justifyContent = 'center'
+    let pointValuePlace = document.createElement('h1');
+    pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
+    pointValuePlace.textContent = score;
+    pointsDivArr[position].style.display = 'inline'
+    pointsDivArr[position].appendChild(pointValuePlace);
 }
 //TD function
 function TDcalc(arrP) {
@@ -210,11 +220,7 @@ function TDcalc(arrP) {
         alert('Must enter a number only');
     } else {
         let points = touchdowns * 6
-        infoSectionArr[arrP].style.display = 'none'
-        let pointValuePlace = document.createElement('h1')
-        pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points
-        pointsDivArr[arrP].appendChild(pointValuePlace)
+        test(arrP, points)
     }
 }
 //Receiving yards function
@@ -228,11 +234,7 @@ function recCalc(arrP) {
         if (recYards > 100) {
             points = recYards / 10 + 2
         }
-        infoSectionArr[arrP].style.display = 'none'
-        let pointValuePlace = document.createElement('h1')
-        pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points
-        pointsDivArr[arrP].appendChild(pointValuePlace)
+        test(arrP, points)
     }
 }
 //Receptions function
@@ -243,11 +245,7 @@ function recpCalc(arrP) {
         alert('Must enter a number only');
     } else {
         let points = receptions
-        infoSectionArr[arrP].style.display = 'none'
-        let pointValuePlace = document.createElement('h1')
-        pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points
-        pointsDivArr[arrP].appendChild(pointValuePlace)
+        test(arrP, points)
     }
 }
 // Defensive Interception function
@@ -258,11 +256,7 @@ function defScore(arrP) {
         alert('Must enter a number only');
     } else {
         let points = numberOf * 2
-        infoSectionArr[arrP].style.display = 'none'
-        let pointValuePlace = document.createElement('h1')
-        pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points
-        pointsDivArr[arrP].appendChild(pointValuePlace)
+        test(arrP, points)
     }
 }
 //QB rushing
@@ -314,25 +308,23 @@ subButArr[13].addEventListener('click', () => {
     defScore(13)
 })
 // End score and final text placement function
-// scoreBut.addEventListener('click', () => {
-//     inputContainer.style.display = 'none'
-//     statText.textContent = 'Result'
-//     const pointPlace = document.getElementsByClassName('pointValuePlace')
-//     const pointPlaceArr = Array.from(pointPlace)
-//     const finPointArr = []
-//     pointPlaceArr.forEach((score) => {
-//         finPointArr.push(parseFloat(score.textContent))
-//     })
-//     const totalPoints = finPointArr.reduce((accumulator, currentValue) => accumulator + currentValue)
-//     scoreBut.style.display = 'none'
-//     const fName = localStorage.getItem('First Name')
-//     const lName = localStorage.getItem('Last Name')
-//     const teamName = localStorage.getItem('Team Name')
-//     finalScore = document.createElement('h1')
-//     finalScore.setAttribute('id', 'finScore')
-//     finalScore.textContent = `${fName} ${lName} the score for ${teamName} is ${totalPoints}`
-//     scoreButtonRow.appendChild(finalScore)
-//     console.log(finPointArr)
-//     console.log(totalPoints)
-// })
+scoreBut.addEventListener('click', () => {
+    inputContainer.style.display = 'none'
+    statText.textContent = 'Result'
+    const pointPlace = document.getElementsByClassName('pointValuePlace')
+    const pointPlaceArr = Array.from(pointPlace)
+    const finPointArr = []
+    pointPlaceArr.forEach((score) => {
+        finPointArr.push(parseFloat(score.textContent))
+    })
+    const totalPoints = finPointArr.reduce((accumulator, currentValue) => accumulator + currentValue)
+    scoreBut.style.display = 'none'
+    const fName = localStorage.getItem('First Name')
+    const lName = localStorage.getItem('Last Name')
+    const teamName = localStorage.getItem('Team Name')
+    finalScore = document.createElement('h1')
+    finalScore.setAttribute('id', 'finScore')
+    finalScore.textContent = `${fName} ${lName} the score for ${teamName} is ${totalPoints}`
+    scoreButtonRow.appendChild(finalScore)
+})
 
