@@ -319,13 +319,14 @@ scoreBut.addEventListener('click', () => {
         finPointArr.push(change)
     })
     const totalPoints = finPointArr.reduce((accumulator, currentValue) => accumulator + currentValue)
+    const pointReturn = parseFloat(totalPoints.toFixed(2))
     scoreBut.style.display = 'none'
     const fName = localStorage.getItem('First Name')
     const lName = localStorage.getItem('Last Name')
     const teamName = localStorage.getItem('Team Name')
     finalScore = document.createElement('h1')
     finalScore.setAttribute('id', 'finScore')
-    finalScore.textContent = `${fName} ${lName} the score for ${teamName} is ${totalPoints}`
+    finalScore.textContent = `${fName} ${lName} the score for ${teamName} is ${pointReturn}`
     scoreButtonRow.appendChild(finalScore)
 })
 
