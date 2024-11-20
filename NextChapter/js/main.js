@@ -121,6 +121,10 @@ form.addEventListener('submit', (e) => {
     localStorage.setItem("First Name", itemArr[1].value)
     localStorage.setItem("Last Name", itemArr[3].value)
     localStorage.setItem("Team Name", itemArr[5].value)
+    localStorage.setItem("Quarterback Name", itemArr[7].value)
+    localStorage.setItem("Runningback Name", itemArr[9].value)
+    localStorage.setItem("Wide Receiver Name", itemArr[11].value)
+    localStorage.setItem("Defense", itemArr[13].value)
     inputContainer.style.display = 'inline'
     scoreButtonRow.style.display = 'flex'
     statText.style.display = 'inline'
@@ -158,7 +162,7 @@ subButArr[0].addEventListener('click', () => {
         infoSectionArr[0].style.justifyContent = 'center'
         let pointValuePlace = document.createElement('h1');
         pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points;
+        pointValuePlace.textContent = `${localStorage.getItem("Quarterback Name")} ${points}`;
         pointsDivArr[0].style.display = 'inline'
         pointsDivArr[0].appendChild(pointValuePlace);
     }
@@ -176,33 +180,14 @@ subButArr[1].addEventListener('click', () => {
         infoSectionArr[1].style.justifyContent = 'center'
         let pointValuePlace = document.createElement('h1');
         pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points;
+        pointValuePlace.textContent = `${localStorage.getItem("Quarterback Name")} ${points}`;
         pointsDivArr[1].style.display = 'inline'
         pointsDivArr[1].appendChild(pointValuePlace);
         
     }
 })
-//Rushing function
-function rushCalcl(arrP) {
-    let rushYards = statInputArr[arrP].value
-    rushYards = Number(rushYards)
-    if (isNaN(rushYards)) {
-        alert('Must enter a number only');
-    } else {
-        let points = rushYards / 10
-        statInputArr[arrP].style.display = 'none'
-        subButArr[arrP].style.display = 'none'
-        infoSectionArr[arrP].style.justifyContent = 'center'
-        let pointValuePlace = document.createElement('h1');
-        pointValuePlace.classList.add('pointValuePlace', 'scoreAnn');
-        pointValuePlace.textContent = points;
-        pointsDivArr[arrP].style.display = 'inline'
-        pointsDivArr[arrP].appendChild(pointValuePlace);
-        
-    }
-}
 // Score placing function
-function test(position, score){
+function scorePlace(position, score){
     statInputArr[position].style.display = 'none'
     subButArr[position].style.display = 'none'
     infoSectionArr[position].style.justifyContent = 'center'
@@ -212,19 +197,31 @@ function test(position, score){
     pointsDivArr[position].style.display = 'inline'
     pointsDivArr[position].appendChild(pointValuePlace);
 }
+//Rushing function
+function rushCalcl(arrP, name) {
+    let rushYards = statInputArr[arrP].value
+    rushYards = Number(rushYards)
+    if (isNaN(rushYards)) {
+        alert('Must enter a number only');
+    } else {
+        let points = rushYards / 10
+        scorePlace(arrP, `${localStorage.getItem(name)} ${points}`)
+        
+    }
+}
 //TD function
-function TDcalc(arrP) {
+function TDcalc(arrP, name) {
     let touchdowns = statInputArr[arrP].value
     touchdowns = Number(touchdowns)
     if (isNaN(touchdowns)) {
         alert('Must enter a number only');
     } else {
         let points = touchdowns * 6
-        test(arrP, points)
+     scorePlace(arrP, `${localStorage.getItem(name)} ${points}`)
     }
 }
 //Receiving yards function
-function recCalc(arrP) {
+function recCalc(arrP, name) {
     let recYards = statInputArr[arrP].value
     recYards = Number(recYards)
     if (isNaN(recYards)) {
@@ -234,78 +231,79 @@ function recCalc(arrP) {
         if (recYards > 100) {
             points = recYards / 10 + 2
         }
-        test(arrP, points)
+     scorePlace(arrP, `${localStorage.getItem(name)} ${points}`)
     }
 }
 //Receptions function
-function recpCalc(arrP) {
+function recpCalc(arrP, name) {
     let receptions = statInputArr[arrP].value
     receptions = Number(receptions)
     if (isNaN(receptions)) {
         alert('Must enter a number only');
     } else {
         let points = receptions
-        test(arrP, points)
+     scorePlace(arrP, `${localStorage.getItem(name)} ${points}`)
     }
 }
 // Defensive Interception function
-function defScore(arrP) {
+function defScore(arrP, name) {
     let numberOf = statInputArr[arrP].value
     numberOf = Number(numberOf)
     if (isNaN(numberOf)) {
         alert('Must enter a number only');
     } else {
         let points = numberOf * 2
-        test(arrP, points)
+     scorePlace(arrP, `${localStorage.getItem(name)} ${points}`)
     }
 }
 //QB rushing
 subButArr[2].addEventListener('click', () => {
-    rushCalcl(2)
+    rushCalcl(2, "Quarterback Name")
+    
 })
 //QB TDs
 subButArr[3].addEventListener('click', () => {
-    TDcalc(3)
+    TDcalc(3, "Quarterback Name")
 })
 //RB rushing
 subButArr[4].addEventListener('click', () => {
-    rushCalcl(4)
+    rushCalcl(4, "Runningback Name")
 })
 // RB receiving
 subButArr[5].addEventListener('click', () => {
-    recCalc(5)
+    recCalc(5, "Runningback Name")
 })
 // RB receptions 
 subButArr[6].addEventListener('click', () => {
-    recpCalc(6)
+    recpCalc(6, "Runningback Name")
 })
 // RB TDs
 subButArr[7].addEventListener('click', () => {
-    TDcalc(7)
+    TDcalc(7, "Runningback Name")
 })
 // WR receiving
 subButArr[8].addEventListener('click', () => {
-    recCalc(8)
+    recCalc(8, "Wide Receiver Name")
 })
 //WR rushing
 subButArr[9].addEventListener('click', () => {
-    rushCalcl(9)
+    rushCalcl(9, "Wide Receiver Name")
 })
 // WR receptions 
 subButArr[10].addEventListener('click', () => {
-    recpCalc(10)
+    recpCalc(10, "Wide Receiver Name")
 })
 // WR TDs
 subButArr[11].addEventListener('click', () => {
-    TDcalc(11)
+    TDcalc(11, "Wide Receiver Name")
 })
 // Defensive Interceptions
 subButArr[12].addEventListener('click', () => {
-    defScore(12)
+    defScore(12, "Defense")
 })
 // Defensive sacks
 subButArr[13].addEventListener('click', () => {
-    defScore(13)
+    defScore(13, "Defense")
 })
 // End score and final text placement function
 scoreBut.addEventListener('click', () => {
@@ -315,7 +313,10 @@ scoreBut.addEventListener('click', () => {
     const pointPlaceArr = Array.from(pointPlace)
     const finPointArr = []
     pointPlaceArr.forEach((score) => {
-        finPointArr.push(parseFloat(score.textContent))
+        let regEx = /-?\d+(\.\d+)?/g
+        let extract = score.textContent.match(regEx)
+        let change = parseFloat(extract)
+        finPointArr.push(change)
     })
     const totalPoints = finPointArr.reduce((accumulator, currentValue) => accumulator + currentValue)
     scoreBut.style.display = 'none'
